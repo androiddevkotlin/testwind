@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">WindmillWeather</string>
+    <string name="empty_view_head">There is nothing here right now</string>
+    <string name="empty_view_bottom">You may want to check again later</string>
+    <string name="common_error_msg_head">If you want to try again later</string>
+    <string name="common_error_msg_bottom">Something went wrong</string>
+    <string name="new_dialog_title">New city</string>
+    <string name="new_dialog_message">Enter the name of your city</string>
+    <string name="new_dialog_btn_positive">Add</string>
+    <string name="new_dialog_btn_negative">Cancel</string>
+    <string name="title_cities_available">Cities available</string>
+    <string name="title_detail">Weather forecast</string>
+    <string name="title_humidity">Humidity</string>
+    <string name="title_pressure">Pressure</string>
+    <string name="title_wind">Wind</string>
+    <string name="celsius">%1$s °C</string>
+    <string name="hpa">%1$s hPa</string>
+    <string name="ms">%1$s m/s</string>
+    <string name="delete">Delete</string>
+    <string name="error_not_found">The city not found!</string>
+    <string name="error_network">Networking error occurred!</string>
+    <string name="error_general">Something went wrong, please try again.</string>
+    <string name="error_no_permission_location">Can\'t get current city, no location permission.</string>
+    <string name="city_name_blank">City name can\'t be blank!</string>
+</resources>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.kalashnyk.denys.windmillweather.usecases.cards.CityCardModel"/>
+
+        <variable
+            name="bindingModel"
+            type="com.kalashnyk.denys.windmillweather.ui.fragment.cities.binding.CityModelBinding" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/indentation_8"
+        android:paddingVertical="@dimen/indentation_8">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> bindingModel.onCityClick(bindingModel)}"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="@dimen/view_params_2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/indentation_8">
+
+                <ImageView
+                    android:id="@+id/icLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/indentation_4"
+                    android:src="@drawable/ic_pin"
+                    android:tint="@color/colorLabel"
+                    android:translationZ="@dimen/indentation_16"
+                    app:pinLocation="@{bindingModel.location}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/indentation_4"
+                    android:src="@drawable/ic_delete"
+                    android:tint="@color/colorLabel"
+                    android:onClick="@{() -> bindingModel.onDeleteClick(bindingModel)}"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:alpha="0.6"
+                    android:translationZ="@dimen/indentation_8"
+                    app:delLocation="@{bindingModel.location}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ivWeather"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    tools:src="@drawable/ic_launcher_background"
+                    app:icon="@{bindingModel.icon}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvCityName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/indentation_8"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_size_22"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/colorLabel"
+                    android:text="@{bindingModel.name}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivWeather"
+                    tools:text="Dnipro" />
+
+                <TextView
+                    android:id="@+id/tvTemperature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/indentation_8"
+                    android:gravity="center"
+                    android:textColor="@color/colorLabel"
+                    tools:text="6 *C"
+                    android:fontFamily="sans-serif-medium"
+                    app:celsius="@{bindingModel.temp}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCityName" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

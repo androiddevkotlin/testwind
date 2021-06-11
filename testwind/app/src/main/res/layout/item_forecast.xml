@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.kalashnyk.denys.windmillweather.usecases.cards.ForecastCardModel"/>
+
+        <variable
+            name="bindingModel"
+            type="com.kalashnyk.denys.windmillweather.ui.fragment.detail.binding.ForecastModelBinding" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/indentation_8"
+        android:paddingVertical="@dimen/indentation_8">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:elevation="@dimen/view_params_2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/indentation_8">
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLabel"
+                    android:drawableStart="@drawable/ic_date"
+                    android:drawablePadding="@dimen/indentation_4"
+                    android:gravity="end"
+                    android:fontFamily="sans-serif-medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:date="@{bindingModel.time}"
+                    tools:text="29.09.2020" />
+
+                <ImageView
+                    android:id="@+id/ivWeather"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:icon="@{bindingModel.icon}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+                <TextView
+                    android:id="@+id/tvCityName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/indentation_8"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_size_22"
+                    android:textColor="@color/colorLabel"
+                    android:fontFamily="sans-serif-medium"
+                    app:celsius="@{bindingModel.temp}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivWeather"
+                    tools:text="7 *C" />
+
+                <TextView
+                    android:id="@+id/tvTemperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/indentation_8"
+                    android:gravity="center|center_vertical"
+                    android:textSize="@dimen/txt_size_18"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium"
+                    android:drawableStart="@drawable/ic_time"
+                    android:drawablePadding="@dimen/indentation_4"
+                    tools:text="12:00"
+                    android:textColor="@color/colorLabel"
+                    app:time="@{bindingModel.time}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCityName" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
